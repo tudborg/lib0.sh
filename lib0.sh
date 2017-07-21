@@ -118,7 +118,7 @@ fi
 
     if ! [[ "$1" =~ ^[0-9]+$ ]] ; then
        echo "0exit called with invalid first argument." >&2
-       stacktrace
+       0stacktrace
        exit 1
     fi
     local code="$1"
@@ -178,7 +178,7 @@ fi
 # set extdebug and set a track that calls stacktrace on error
 if [ "$LIB0_DEBUG" = true ]; then
     shopt -s extdebug
-    trap 'stacktrace' ERR
+    trap '0stacktrace' ERR
     set -o errtrace
 fi
 
